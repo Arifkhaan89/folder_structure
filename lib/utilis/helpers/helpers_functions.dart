@@ -39,6 +39,14 @@ class THelperFunctions {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
+  void showGetXSnackbar(String title, String message) {
+    Get.snackbar(title, message,
+        backgroundColor: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: const EdgeInsets.all(8.0) // Optional: Position control
+        );
+  }
+
   static void showAlert(String title, String message) {
     showDialog(
       context: Get.context!,

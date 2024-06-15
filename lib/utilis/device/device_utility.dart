@@ -16,14 +16,24 @@ class TDeviceUtils {
         SystemUiOverlayStyle(statusBarColor: color));
   }
 
-  static bool isLandScapeOrientation(BuildContext context) {
-    final viewInsets = View.of(context).viewInsets;
-    return viewInsets.bottom == 0;
+  // static bool isLandScapeOrientation(BuildContext context) {
+  //   final viewInsets = View.of(context).viewInsets;
+  //   return viewInsets.bottom == 0;
+  // }
+
+  static bool isLandscapeOrientation(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+    return orientation == Orientation.landscape;
   }
 
+  // static bool isPortraitOrientation(BuildContext context) {
+  //   final viewInsets = View.of(context).viewInsets;
+  //   return viewInsets.bottom != 0;
+  // }
+
   static bool isPortraitOrientation(BuildContext context) {
-    final viewInsets = View.of(context).viewInsets;
-    return viewInsets.bottom != 0;
+    var orientation = MediaQuery.of(context).orientation;
+    return orientation == Orientation.portrait;
   }
 
   static void setFullScreen(bool enable) {
@@ -44,7 +54,7 @@ class TDeviceUtils {
   }
 
   static double getStatusBarHeight() {
-    return MediaQuery.of(Get.context!).devicePixelRatio;
+    return MediaQuery.of(Get.context!).padding.top;
   }
 
   static double getBottomNavigationBarHeight() {
